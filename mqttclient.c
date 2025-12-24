@@ -39,6 +39,12 @@ LOG_MODULE_REGISTER(mqtt_client, LOG_LEVEL_DBG);
 
 // #undef CONFIG_SOCKS
 
+#if 0
+#define DEBUGP(fmt, ...) printf("\033[31m%s(%d):\033[35m"fmt"\033[0m\n", __func__, __LINE__, ##__VA_ARGS__) 
+#else
+#define    DEBUGP(fmt, ...)
+#endif
+
 #define RC_STR(rc) ((rc) == 0 ? "OK" : "ERROR")
 
 #define PRINT_RESULT(func, rc) \
